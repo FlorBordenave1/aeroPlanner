@@ -1,5 +1,6 @@
 import { LoginFormValues } from "@pages/Login/types";
 import { FormikProps } from "formik";
+import { KeyboardTypeOptions } from "react-native";
 
 export interface LoginFormProps {
   formik: FormikProps<LoginFormValues>;
@@ -12,5 +13,5 @@ export interface InputFieldProps {
   type?: "text" | "password";
   leftElement?: JSX.Element;
   rightElement?: JSX.Element;
-  keyboardType?: string;
+  keyboardType?: KeyboardTypeOptions;
 }
