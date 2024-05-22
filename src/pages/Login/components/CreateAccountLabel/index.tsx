@@ -1,6 +1,5 @@
-import { Linking, StyleSheet } from "react-native";
-import { Box, Image, Text } from "native-base";
-import { theme } from "../../../../../theme";
+import { StyleSheet } from "react-native";
+import { Box, Text } from "native-base";
 
 interface CreateAccountLabelProps {
   handleOpenWhatsapp: () => void;
@@ -10,14 +9,15 @@ export default function CreateAccountLabel({
 }: CreateAccountLabelProps) {
   return (
     <Box style={styles.container}>
-      <Text fontWeight={500} fontSize={14} color={theme.colors.gray50}>
+      <Text fontSize={14} color={"#373A40"} fontFamily={"Poppins-Regular"}>
         Todavía no tenes una cuenta?{" "}
       </Text>
       <Text
-        fontWeight={600}
         fontSize={14}
-        color={theme.colors.baseWhite}
+        fontWeight={600}
+        color={"#373A40"}
         onPress={handleOpenWhatsapp}
+        fontFamily={"Poppins-Medium"}
       >
         Gestiona una
       </Text>

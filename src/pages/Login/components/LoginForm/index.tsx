@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Platform, Pressable, StyleSheet, Text } from "react-native";
-import { FormControl, Input, KeyboardAvoidingView } from "native-base";
+import { Pressable, StyleSheet, Text } from "react-native";
+import { FormControl, Input } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { theme } from "../../../../../theme";
 import { InputFieldProps, LoginFormProps } from "./types";
 import ActionButton from "components/ActionButton";
-import { Form } from "formik";
 
 export default function LoginForm({ formik, isLoading }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,15 +19,17 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
     <Input
       id={name}
       backgroundColor={theme.colors.gray00}
-      borderWidth={0}
+      borderWidth={1}
       fontSize={14}
       height={"48px"}
       InputLeftElement={leftElement}
       InputRightElement={rightElement}
       placeholder={placeholder}
       placeholderTextColor={theme.colors.blue900}
+      borderColor={"#909296"}
       type={type}
-      variant={"rounded"}
+      // variant={"rounded"}
+      borderRadius={"8px"}
       fontFamily={"Poppins"}
       onChangeText={formik.handleChange(name)}
       autoCapitalize="none"
@@ -48,33 +49,29 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
   );
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <FormControl style={styles.form}>
-        {renderInputField({
-          name: "email",
-          placeholder: "Usuario",
-          type: "text",
-          leftElement: renderIcon("user-alt"),
-        })}
+    <FormControl style={styles.form}>
+      {renderInputField({
+        name: "email",
+        placeholder: "Usuario",
+        type: "text",
+        leftElement: renderIcon("user-alt"),
+      })}
 
-        {renderInputField({
-          name: "password",
-          placeholder: "Contraseña",
-          type: showPassword ? "text" : "password",
-          rightElement: renderIcon(showPassword ? "eye" : "eye-slash"),
-        })}
+      {renderInputField({
+        name: "password",
+        placeholder: "Contraseña",
+        type: showPassword ? "text" : "password",
+        rightElement: renderIcon(showPassword ? "eye" : "eye-slash"),
+      })}
 
-        <Text style={styles.text}> Olvidaste tu contraseña?</Text>
+      <Text style={styles.text}> Olvidaste tu contraseña?</Text>
 
-        <ActionButton
-          onPress={formik.handleSubmit}
-          label="Iniciar Sesión"
-          isLoading={isLoading}
-        />
-      </FormControl>
-    </KeyboardAvoidingView>
+      <ActionButton
+        onPress={formik.handleSubmit}
+        label="Iniciar Sesión"
+        isLoading={isLoading}
+      />
+    </FormControl>
   );
 }
 
@@ -90,7 +87,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     fontWeight: 500,
-    color: theme.colors.baseWhite,
+    color: "#373A40",
     textAlign: "right",
     fontFamily: "Poppins",
   },

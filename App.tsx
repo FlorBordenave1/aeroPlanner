@@ -9,7 +9,9 @@ const queryClient = new QueryClient();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "Inter-Black": require("./assets/fonts/Poppins-Regular.ttf"),
+    Poppins: require("./assets/fonts/Poppins-Regular.ttf"),
+    "Poppins-Bold": require("./assets/fonts/Poppins-SemiBold.ttf"),
+    "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
   });
 
   if (!fontsLoaded) {

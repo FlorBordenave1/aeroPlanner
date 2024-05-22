@@ -13,13 +13,13 @@ export default function ActionButton({
 }: ActionButtonProps) {
   return (
     <Button
-      bg={theme.colors.blue900}
-      borderRadius={80}
+      bg={"#2970ff"}
+      borderRadius={8}
       height={"48px"}
       isLoading={isLoading}
       onPress={() => onPress()}
       fontFamily={"Poppins"}
-      _pressed={{ opacity: 0.7, bg: theme.colors.blue50 }}
+      _pressed={{ opacity: 0.7, bg: "#528BFF" }}
       _loading={{
         bg: theme.colors.blue50,
       }}

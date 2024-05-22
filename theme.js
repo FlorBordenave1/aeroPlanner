@@ -21,7 +21,10 @@ export const theme = extendTheme({
     baseWhite: "#fff",
 
     gray00: "#F8f9fA",
+    gray02: "#909296",
     gray08: "#343A40",
+    gray09: "#101113",
+
     gray50: "#94A3B8",
 
     blue50: "#7B8CA4",

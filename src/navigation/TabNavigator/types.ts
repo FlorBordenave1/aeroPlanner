@@ -1,6 +1,7 @@
 export type TabNavigatorStack = {
   Profile: undefined;
   Home: undefined;
+  Calendar: undefined;
   FlightConfiguration: undefined;
 };
 
