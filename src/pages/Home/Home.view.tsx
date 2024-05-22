@@ -6,6 +6,7 @@ import InfoBox from "./components/InfoBox";
 import { AntDesign } from "@expo/vector-icons";
 import { useHomeController } from "./Home.controller";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Home = () => {
   const { handleOpenWhatsapp } = useHomeController();
@@ -33,7 +34,13 @@ const Home = () => {
           cardTitle={"68hs"}
           cardDescription={"acumuladas"}
           icon={
-            <FontAwesome6 name="plane-circle-check" size={20} color="#2970ff" />
+            <MaterialCommunityIcons
+              name="airplane-check"
+              size={24}
+              color="#2970ff"
+            />
+
+            // <FontAwesome6 name="plane-circle-check" size={20} color="#2970ff" />
           }
         />
 
