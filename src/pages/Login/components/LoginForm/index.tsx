@@ -15,6 +15,7 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
     type = "text",
     leftElement,
     rightElement,
+    keyboardType = "default",
   }: InputFieldProps): JSX.Element => (
     <Input
       id={name}
@@ -28,11 +29,11 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
       placeholderTextColor={theme.colors.blue900}
       borderColor={"#909296"}
       type={type}
-      // variant={"rounded"}
       borderRadius={"8px"}
       fontFamily={"Poppins"}
       onChangeText={formik.handleChange(name)}
       autoCapitalize="none"
+      keyboardType={keyboardType}
     />
   );
 
@@ -53,8 +54,8 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
       {renderInputField({
         name: "email",
         placeholder: "Usuario",
-        type: "text",
         leftElement: renderIcon("user-alt"),
+        keyboardType: "email-address",
       })}
 
       {renderInputField({
@@ -70,6 +71,7 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
         onPress={formik.handleSubmit}
         label="Iniciar Sesión"
         isLoading={isLoading}
+        disabled={!formik.isValid}
       />
     </FormControl>
   );

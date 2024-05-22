@@ -4,6 +4,7 @@ import AppNavigator from "./src/navigation/AppNavigator";
 import { theme } from "./theme";
 import { useFonts } from "expo-font";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Toast from "react-native-toast-message";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ export default function App() {
       <NativeBaseProvider theme={theme}>
         <NavigationContainer>
           <AppNavigator />
+          <Toast />
         </NavigationContainer>
       </NativeBaseProvider>
     </QueryClientProvider>

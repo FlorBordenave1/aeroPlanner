@@ -8,11 +8,13 @@ export default function ActionButton({
   isLoading,
   label,
   spinner,
+  disabled,
   onPress,
   ...props
 }: ActionButtonProps) {
   return (
     <Button
+      isDisabled={disabled}
       bg={"#2970ff"}
       borderRadius={8}
       height={"48px"}

@@ -12,4 +12,5 @@ export interface InputFieldProps {
   type?: "text" | "password";
   leftElement?: JSX.Element;
   rightElement?: JSX.Element;
+  keyboardType?: string;
 }
