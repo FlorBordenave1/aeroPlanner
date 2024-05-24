@@ -11,10 +11,12 @@ export default function InfoBox({
   bg,
 }: InfoBoxProps) {
   return (
-    <VStack space={"16px"}>
-      <Text fontSize={20} fontFamily={"Poppins-Bold"}>
-        {title}
-      </Text>
+    <VStack space={"8px"}>
+      {title && (
+        <Text fontSize={20} fontFamily={"Poppins-Bold"}>
+          {title}
+        </Text>
+      )}
       <Box
         background={bg || theme.colors.baseWhite}
         borderRadius={12}

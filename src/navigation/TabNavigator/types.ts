@@ -2,7 +2,8 @@ export type TabNavigatorStack = {
   Profile: undefined;
   Home: undefined;
   Calendar: undefined;
-  FlightConfiguration: undefined;
+  Documentation: undefined;
+  Schedule: undefined;
 };
 
 // type RootStackParamList = {

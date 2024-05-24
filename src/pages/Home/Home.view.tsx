@@ -1,15 +1,15 @@
 import { StyleSheet, SafeAreaView } from "react-native";
 import { Text, VStack } from "native-base";
 import { theme } from "../../../theme";
+import { useHomeController } from "./Home.controller";
 import UserName from "./components/UserName";
 import InfoBox from "./components/InfoBox";
-import { AntDesign } from "@expo/vector-icons";
-import { useHomeController } from "./Home.controller";
-import { FontAwesome6 } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import CmaInformation from "./components/CmaInformation";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import LicenceBox from "./components/LicenceBox";
 
 const Home = () => {
-  const { handleOpenWhatsapp } = useHomeController();
+  const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,9 +21,10 @@ const Home = () => {
         space={4}
       >
         <UserName name="German" />
+
         <InfoBox
           title={"Tu próximo vuelo:"}
-          cardTitle={" Empieza Junio 27"}
+          cardTitle={"Empieza Junio 27"}
           cardDescription={"20 días restantes"}
           icon={<AntDesign name="clockcircleo" size={20} color="#2970ff" />}
         />
@@ -39,8 +40,19 @@ const Home = () => {
               size={24}
               color="#2970ff"
             />
+          }
+        />
 
-            // <FontAwesome6 name="plane-circle-check" size={20} color="#2970ff" />
+        <InfoBox
+          direccion="row"
+          cardTitle={"35hs"}
+          cardDescription={"remanentes"}
+          icon={
+            <MaterialCommunityIcons
+              name="timetable"
+              size={20}
+              color="#2970ff"
+            />
           }
         />
 
@@ -53,14 +65,9 @@ const Home = () => {
           Agendar nuevo turno
         </Text>
 
-        <InfoBox
-          direccion="row"
-          title={"Tu CMA esta al dia"}
-          cardTitle={"Vence el:"}
-          cardDescription={"12/12/2024"}
-          icon={<AntDesign name="calendar" size={20} color="#14532d" />}
-          bg={"#DCFCE7"}
-        />
+        <CmaInformation data={cmaObject} />
+
+        <LicenceBox data={licenceData} />
       </VStack>
     </SafeAreaView>
   );
