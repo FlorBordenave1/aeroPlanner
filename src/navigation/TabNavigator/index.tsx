@@ -11,6 +11,7 @@ import {
 import Documentation from "@pages/Documentation/Documentation.view";
 import Profile from "@pages/Profile/Profile.view";
 import Schedule from "@pages/Schedule/Schedule.view";
+import { theme } from "../../../theme";
 
 const Tab = createBottomTabNavigator<TabNavigatorStack>();
 
@@ -20,7 +21,7 @@ const TabNavigator = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#2970ff",
+        tabBarActiveTintColor: theme.colors.primary05,
       }}
     >
       <Tab.Screen

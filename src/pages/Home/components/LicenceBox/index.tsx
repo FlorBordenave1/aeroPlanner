@@ -21,7 +21,11 @@ export default function LicenceBox({ data }: LicenceBoxProps) {
             alignItems={"center"}
             style={{ gap: 12 }}
           >
-            <Entypo name="controller-record" size={14} color="#2970ff" />
+            <Entypo
+              name="controller-record"
+              size={14}
+              color={theme.colors.primary05}
+            />
 
             <Text fontSize={16} fontFamily={"Poppins"}>
               {licence.title}

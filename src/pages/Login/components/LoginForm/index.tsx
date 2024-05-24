@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
-import { FormControl, Input } from "native-base";
+import { Pressable, StyleSheet } from "react-native";
+import { FormControl, Input, Text } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { theme } from "../../../../../theme";
 import { InputFieldProps, LoginFormProps } from "./types";
@@ -26,8 +26,8 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
       InputLeftElement={leftElement}
       InputRightElement={rightElement}
       placeholder={placeholder}
-      placeholderTextColor={theme.colors.blue900}
-      borderColor={"#909296"}
+      placeholderTextColor={theme.colors.gray09}
+      borderColor={theme.colors.gray02}
       type={type}
       borderRadius={"8px"}
       fontFamily={"Poppins"}
@@ -42,7 +42,7 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
       <FontAwesome5
         name={name}
         size={15}
-        color={theme.colors.blue900}
+        color={theme.colors.gray09}
         paddingLeft={name === "user-alt" && 12}
         paddingRight={name !== "user-alt" && 12}
       />
@@ -65,7 +65,14 @@ export default function LoginForm({ formik, isLoading }: LoginFormProps) {
         rightElement: renderIcon(showPassword ? "eye" : "eye-slash"),
       })}
 
-      <Text style={styles.text}> Olvidaste tu contraseña?</Text>
+      <Text
+        fontSize={14}
+        fontFamily={"Poppins"}
+        color={theme.colors.gray05}
+        textAlign={"right"}
+      >
+        Olvidaste tu contraseña?
+      </Text>
 
       <ActionButton
         onPress={formik.handleSubmit}
@@ -85,12 +92,5 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     gap: 16,
     marginTop: 24,
-  },
-  text: {
-    fontSize: 14,
-    fontWeight: 500,
-    color: "#373A40",
-    textAlign: "right",
-    fontFamily: "Poppins",
   },
 });

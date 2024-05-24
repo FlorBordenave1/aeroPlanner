@@ -15,15 +15,15 @@ export default function ActionButton({
   return (
     <Button
       isDisabled={disabled}
-      bg={"#2970ff"}
+      bg={theme.colors.primary05}
       borderRadius={8}
       height={"48px"}
       isLoading={isLoading}
       onPress={() => onPress()}
       fontFamily={"Poppins"}
-      _pressed={{ opacity: 0.7, bg: "#528BFF" }}
+      _pressed={{ opacity: 0.7, bg: theme.colors.primary04 }}
       _loading={{
-        bg: theme.colors.blue50,
+        bg: theme.colors.primary03,
       }}
       _spinner={{
         color: "white",

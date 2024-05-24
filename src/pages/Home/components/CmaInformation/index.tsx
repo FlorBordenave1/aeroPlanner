@@ -6,19 +6,31 @@ import { Ionicons, AntDesign } from "@expo/vector-icons";
 export default function CmaInformation({ data }: InfoBoxProps) {
   const { title, cardTitle, cardDescription, type } = data;
 
+  const color = theme.colors;
+
   const renderBackgroundColor = () => {
-    if (type === "success") return "#ecfdf3";
-    if (type === "error") return "#fef3f2";
-    if (type === "warning") return "#fffaeb";
+    if (type === "success") return color.success00;
+    if (type === "error") return color.error00;
+    if (type === "warning") return color.warning00;
   };
 
   const renderIcon = () => {
     if (type === "success")
-      return <AntDesign name="checkcircleo" size={20} color="#039855" />;
+      return (
+        <AntDesign name="checkcircleo" size={20} color={color.success05} />
+      );
     if (type === "error")
-      return <Ionicons name="alert-circle-outline" size={24} color="#d92d29" />;
+      return (
+        <Ionicons name="alert-circle-outline" size={24} color={color.error05} />
+      );
     if (type === "warning")
-      return <Ionicons name="alert-circle-outline" size={24} color="#DC6803" />;
+      return (
+        <Ionicons
+          name="alert-circle-outline"
+          size={24}
+          color={color.warning05}
+        />
+      );
   };
 
   return (
@@ -40,11 +52,7 @@ export default function CmaInformation({ data }: InfoBoxProps) {
           <Text fontSize={16} fontFamily={"Poppins"}>
             {cardTitle}
           </Text>
-          <Text
-            fontSize={14}
-            fontFamily={"Poppins"}
-            color={theme.colors.blue50}
-          >
+          <Text fontSize={14} fontFamily={"Poppins"} color={color.primary03}>
             {cardDescription}
           </Text>
         </HStack>

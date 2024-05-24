@@ -1,5 +1,6 @@
 import { Text, View } from "native-base";
 import { UserNameProps } from "./types";
+import { theme } from "../../../../../theme";
 
 export default function UserName({ name }: UserNameProps) {
   return (
@@ -11,7 +12,7 @@ export default function UserName({ name }: UserNameProps) {
         fontSize={32}
         fontFamily={"Poppins-Bold"}
         fontWeight={600}
-        color={"#2970ff"}
+        color={theme.colors.primary05}
         lineHeight={"36px"}
       >
         {name}

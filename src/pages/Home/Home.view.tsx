@@ -5,8 +5,8 @@ import { useHomeController } from "./Home.controller";
 import UserName from "./components/UserName";
 import InfoBox from "./components/InfoBox";
 import CmaInformation from "./components/CmaInformation";
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import LicenceBox from "./components/LicenceBox";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 
 const Home = () => {
   const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
@@ -26,7 +26,13 @@ const Home = () => {
           title={"Tu próximo vuelo:"}
           cardTitle={"Empieza Junio 27"}
           cardDescription={"20 días restantes"}
-          icon={<AntDesign name="clockcircleo" size={20} color="#2970ff" />}
+          icon={
+            <AntDesign
+              name="clockcircleo"
+              size={20}
+              color={theme.colors.primary05}
+            />
+          }
         />
 
         <InfoBox
@@ -38,7 +44,7 @@ const Home = () => {
             <MaterialCommunityIcons
               name="airplane-check"
               size={24}
-              color="#2970ff"
+              color={theme.colors.primary05}
             />
           }
         />
@@ -51,14 +57,14 @@ const Home = () => {
             <MaterialCommunityIcons
               name="timetable"
               size={20}
-              color="#2970ff"
+              color={theme.colors.primary05}
             />
           }
         />
 
         <Text
           fontSize={14}
-          color={"#2970ff"}
+          color={theme.colors.primary05}
           onPress={handleOpenWhatsapp}
           fontFamily={"Poppins-Bold"}
         >
