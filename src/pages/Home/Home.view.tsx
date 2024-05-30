@@ -1,38 +1,26 @@
-import { StyleSheet, SafeAreaView } from "react-native";
 import { Text, VStack } from "native-base";
 import { theme } from "../../../theme";
 import { useHomeController } from "./Home.controller";
-import UserName from "./components/UserName";
 import InfoBox from "./components/InfoBox";
 import CmaInformation from "./components/CmaInformation";
 import LicenceBox from "./components/LicenceBox";
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import CustomIcon from "./components/CustomIcon";
+import CustomSafeAreaView from "components/CustomSafeArea";
+import TitlePage from "components/TitlePage";
 
 const Home = () => {
   const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <VStack
-        bg={theme.colors.baseWhite}
-        flex={1}
-        padding={"16px"}
-        marginTop={2}
-        space={4}
-      >
-        <UserName name="German" />
+    <CustomSafeAreaView>
+      <VStack bg={theme.colors.baseWhite} flex={1} space={4}>
+        <TitlePage title="Hola," subtitle="German" />
 
         <InfoBox
           title={"Tu próximo vuelo:"}
           cardTitle={"Empieza Junio 27"}
           cardDescription={"20 días restantes"}
-          icon={
-            <AntDesign
-              name="clockcircleo"
-              size={20}
-              color={theme.colors.primary05}
-            />
-          }
+          icon={<CustomIcon iconType="AntDesign" name="clockcircleo" />}
         />
 
         <InfoBox
@@ -40,26 +28,14 @@ const Home = () => {
           title={"Tenés un total de:"}
           cardTitle={"68hs"}
           cardDescription={"acumuladas"}
-          icon={
-            <MaterialCommunityIcons
-              name="airplane-check"
-              size={24}
-              color={theme.colors.primary05}
-            />
-          }
+          icon={<CustomIcon size={24} name="airplane-check" />}
         />
 
         <InfoBox
           direccion="row"
           cardTitle={"35hs"}
           cardDescription={"remanentes"}
-          icon={
-            <MaterialCommunityIcons
-              name="timetable"
-              size={20}
-              color={theme.colors.primary05}
-            />
-          }
+          icon={<CustomIcon name="timetable" />}
         />
 
         <Text
@@ -75,15 +51,8 @@ const Home = () => {
 
         <LicenceBox data={licenceData} />
       </VStack>
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.baseWhite,
-  },
-});
 
 export default Home;

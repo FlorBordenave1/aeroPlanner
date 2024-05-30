@@ -52,7 +52,7 @@ export default function CmaInformation({ data }: InfoBoxProps) {
           <Text fontSize={16} fontFamily={"Poppins"}>
             {cardTitle}
           </Text>
-          <Text fontSize={14} fontFamily={"Poppins"} color={color.primary03}>
+          <Text fontSize={14} fontFamily={"Poppins"} color={color.gray03}>
             {cardDescription}
           </Text>
         </HStack>

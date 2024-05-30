@@ -35,7 +35,7 @@ export default function InfoBox({
             <Text
               fontSize={14}
               fontFamily={"Poppins"}
-              color={theme.colors.primary03}
+              color={theme.colors.gray03}
             >
               {cardDescription}
             </Text>
@@ -48,7 +48,7 @@ export default function InfoBox({
             <Text
               fontSize={14}
               fontFamily={"Poppins"}
-              color={theme.colors.primary03}
+              color={theme.colors.gray03}
               lineHeight={"16px"}
             >
               {cardDescription}

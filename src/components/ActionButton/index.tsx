@@ -23,7 +23,7 @@ export default function ActionButton({
       fontFamily={"Poppins"}
       _pressed={{ opacity: 0.7, bg: theme.colors.primary04 }}
       _loading={{
-        bg: theme.colors.primary03,
+        bg: theme.colors.gray03,
       }}
       _spinner={{
         color: "white",

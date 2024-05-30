@@ -1,20 +1,17 @@
-import { StyleSheet, SafeAreaView } from "react-native";
-import { Text } from "native-base";
-import { theme } from "../../../theme";
+import CustomSafeAreaView from "components/CustomSafeArea";
+import TitlePage from "components/TitlePage";
+import { VStack } from "native-base";
+import UserForm from "./components/UserForm";
 
 const Profile = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>perfil</Text>
-    </SafeAreaView>
+    <CustomSafeAreaView>
+      <TitlePage title="Datos" subtitle="personales" />
+      <VStack>
+        <UserForm formik={""} />
+      </VStack>
+    </CustomSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.baseWhite,
-  },
-});
 
 export default Profile;
