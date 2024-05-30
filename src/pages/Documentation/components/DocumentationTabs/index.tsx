@@ -1,16 +1,16 @@
-//
-import * as React from "react";
-import { StatusBar, Pressable, View, Dimensions } from "react-native";
+import { useState } from "react";
+import { StatusBar, Pressable, Dimensions } from "react-native";
 import { TabView } from "react-native-tab-view";
-import { Text, Box } from "native-base";
+import { Box, HStack } from "native-base";
 import { theme } from "../../../../../theme";
 import { DocumentationTabsProps } from "./types";
+import Text from "components/Text";
 
 const DocumentationTabs: React.FC<DocumentationTabsProps> = ({
   renderScene,
 }) => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
     {
       key: "first",
       title: "Manuales",
@@ -31,54 +31,34 @@ const DocumentationTabs: React.FC<DocumentationTabsProps> = ({
 
   const renderTabBar = () => {
     return (
-      <View
-        style={{
-          flexDirection: "row",
-          width: "100%",
-          marginTop: 12,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            width: "100%",
-          }}
-        >
-          {routes.map((route: any, i: any) => {
-            const color =
-              index === i ? theme.colors.primary05 : theme.colors.gray09;
-            const borderColor =
-              index === i ? theme.colors.primary05 : theme.colors.primary01;
-            return (
-              <Box
-                borderBottomWidth="3"
-                borderColor={borderColor}
-                alignItems="center"
-                p="3"
-                width={"33%"}
-                key={i}
+      <HStack width={"100%"} mt={2}>
+        {routes?.map((route: any, i: any) => {
+          const color =
+            index === i ? theme.colors.primary05 : theme.colors.gray09;
+          const borderColor =
+            index === i ? theme.colors.primary05 : theme.colors.primary01;
+          return (
+            <Box
+              borderBottomWidth="3"
+              borderColor={borderColor}
+              alignItems="center"
+              p="3"
+              width={"33%"}
+              key={i}
+            >
+              <Pressable
+                onPress={() => {
+                  setIndex(i);
+                }}
               >
-                <Pressable
-                  onPress={() => {
-                    console.log(i);
-                    setIndex(i);
-                  }}
-                >
-                  <Text
-                    style={{
-                      color,
-                      fontFamily: "Poppins-Medium",
-                      fontSize: 16,
-                    }}
-                  >
-                    {route.title}
-                  </Text>
-                </Pressable>
-              </Box>
-            );
-          })}
-        </View>
-      </View>
+                <Text font="BODY_MEDIUM" color={color}>
+                  {route.title}
+                </Text>
+              </Pressable>
+            </Box>
+          );
+        })}
+      </HStack>
     );
   };
 

@@ -2,8 +2,10 @@ export interface CmaObject {
   title: string;
   cardTitle: string;
   cardDescription: string;
-  type: "error" | "warning" | "success" | string;
+  type: CardTypes;
 }
+
+export type CardTypes = "error" | "warning" | "success";
 
 interface DataProps {
   title: string;

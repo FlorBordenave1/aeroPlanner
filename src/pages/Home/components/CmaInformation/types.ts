@@ -2,9 +2,11 @@ interface CmaObject {
   title: string;
   cardTitle: string;
   cardDescription: string;
-  type: "error" | "warning" | "success" | string;
+  type: CardTypes;
 }
 
-export interface InfoBoxProps {
+export type CardTypes = "error" | "warning" | "success";
+
+export interface CmaInformationProps {
   data: CmaObject;
 }

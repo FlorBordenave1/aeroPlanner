@@ -1,7 +1,6 @@
 import { FormControl, Input, Text, VStack } from "native-base";
 import { UserFormProps, InputFieldProps } from "./types";
 import { theme } from "../../../../../theme";
-import { StyleSheet } from "react-native";
 import ActionButton from "components/ActionButton";
 import InputForm from "../InputForm";
 
@@ -33,9 +32,9 @@ const inputList = [
   },
 ];
 
-export default function UserForm({ formik }: UserFormProps) {
+const UserForm: React.FC<UserFormProps> = ({ formik }) => {
   return (
-    <FormControl style={styles.form}>
+    <FormControl mt={4}>
       <VStack space={2}>
         {inputList.map((input, i) => (
           <InputForm data={input} key={i} />
@@ -52,14 +51,6 @@ export default function UserForm({ formik }: UserFormProps) {
       /> */}
     </FormControl>
   );
-}
-const styles = StyleSheet.create({
-  formContainer: {
-    justifyContent: "center",
-  },
-  form: {
-    borderRadius: 10,
-    gap: 16,
-    marginTop: 24,
-  },
-});
+};
+
+export default UserForm;

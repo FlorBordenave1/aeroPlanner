@@ -1,5 +1,3 @@
-import { StyleSheet } from "react-native";
-import { theme } from "../../../theme";
 import CustomSafeAreaView from "components/CustomSafeArea";
 import TitlePage from "components/TitlePage";
 import FlightInfoBox from "./components/FlightInfoBox";
@@ -9,9 +7,8 @@ import { useScheduleController } from "./Schedule.controller";
 const Schedule = () => {
   const { flightScheduleData, navigateFlightDetail } = useScheduleController();
   return (
-    <CustomSafeAreaView style={styles.container}>
+    <CustomSafeAreaView>
       <TitlePage title="Tus" subtitle="próximos vuelos" />
-
       <ScrollView>
         <VStack space={3} mt={6} mb={1} paddingLeft={1} paddingRight={1}>
           {flightScheduleData?.map((flightData, i) => (
@@ -26,12 +23,5 @@ const Schedule = () => {
     </CustomSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.baseWhite,
-  },
-});
 
 export default Schedule;

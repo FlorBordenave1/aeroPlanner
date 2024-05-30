@@ -3,7 +3,7 @@ import TitlePage from "components/TitlePage";
 import { VStack } from "native-base";
 import UserForm from "./components/UserForm";
 
-const Profile = () => {
+const Profile: React.FC = () => {
   return (
     <CustomSafeAreaView>
       <TitlePage title="Datos" subtitle="personales" />

@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { StepperProps } from "./types";
-import StepIndicator from "react-native-step-indicator";
-import { theme } from "../../../../../theme";
 import { Entypo } from "@expo/vector-icons";
+import { StepperProps } from "./types";
+import { theme } from "../../../../../theme";
+import { VStack } from "native-base";
+import React from "react";
+import StepIndicator from "react-native-step-indicator";
 
 const Stepper: React.FC<StepperProps> = ({}) => {
   const labels = ["SFO", "BS AS", "SFO"];
@@ -17,22 +17,22 @@ const Stepper: React.FC<StepperProps> = ({}) => {
     currentStepIndicatorSize: 40,
     separatorStrokeWidth: 2,
     currentStepStrokeWidth: 5,
+    separatorUnFinishedColor: theme.colors.primary05,
+    stepIndicatorLabelFontSize: 15,
+    currentStepIndicatorLabelFontSize: 15,
+    labelAlign: `flex-start`,
     stepStrokeCurrentColor: "transparent",
     separatorFinishedColor: "transparent",
-    separatorUnFinishedColor: theme.colors.primary05,
     stepIndicatorFinishedColor: "transparent",
     stepIndicatorUnFinishedColor: "transparent",
     stepIndicatorCurrentColor: "transparent",
-    stepIndicatorLabelFontSize: 15,
-    currentStepIndicatorLabelFontSize: 15,
     stepIndicatorLabelCurrentColor: "transparent",
     stepIndicatorLabelFinishedColor: "transparent",
     stepIndicatorLabelUnFinishedColor: "transparent",
-    labelAlign: `flex-start`,
   };
 
   return (
-    <View style={styles.container}>
+    <VStack height={150}>
       <StepIndicator
         // @ts-ignore
         customStyles={stepIndicatorStyles}
@@ -47,14 +47,8 @@ const Stepper: React.FC<StepperProps> = ({}) => {
           />
         )}
       />
-    </View>
+    </VStack>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: 150,
-  },
-});
 
 export default Stepper;

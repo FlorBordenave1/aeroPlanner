@@ -1,12 +1,12 @@
-import { Badge, HStack, Text, VStack } from "native-base";
-import { theme } from "../../../theme";
-import { StyleSheet } from "react-native";
-import { useFlightDetailController } from "./FlightDetail.controller";
-import Stepper from "./components/Stepper";
+import { Badge, HStack, VStack } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
+import { theme } from "../../../theme";
+import { useFlightDetailController } from "./FlightDetail.controller";
 import CustomSafeAreaView from "components/CustomSafeArea";
+import Stepper from "./components/Stepper";
+import Text from "components/Text";
 
-const FlightDetail = () => {
+const FlightDetail: React.FC = () => {
   const { handleGoBack } = useFlightDetailController();
 
   const withInstructor = true;
@@ -19,8 +19,8 @@ const FlightDetail = () => {
 
   const renderItem = (title: string, label: string) => (
     <HStack>
-      <Text {...styles.base}>{title}: </Text>
-      <Text {...styles.bold} w="70%">
+      <Text font="BODY_SEMIBOLD">{title}: </Text>
+      <Text font="BODY_REGULAR" w="70%">
         {label}
       </Text>
     </HStack>
@@ -38,8 +38,8 @@ const FlightDetail = () => {
 
         <VStack space={1} mt={2}>
           <HStack alignItems={"center"}>
-            <Text {...styles.base}>Piloto: </Text>
-            <Text {...styles.base} color={theme.colors.primary05} fontSize={18}>
+            <Text font="BODY_SEMIBOLD">Piloto: </Text>
+            <Text font="H3_SEMIBOLD" color={theme.colors.primary05}>
               German Illanes
             </Text>
           </HStack>
@@ -58,18 +58,5 @@ const FlightDetail = () => {
     </CustomSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  base: {
-    fontSize: 16,
-    fontFamily: "Poppins-Bold",
-    color: theme.colors.gray05,
-  },
-  bold: {
-    fontSize: 16,
-    fontFamily: "Poppins",
-    color: theme.colors.gray03,
-  },
-});
 
 export default FlightDetail;

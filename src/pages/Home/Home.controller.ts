@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Linking } from "react-native";
-import { CmaObject, LicenceList } from "./Home.types";
+import { CardTypes, CmaObject, LicenceList } from "./Home.types";
 
 export const useHomeController = () => {
   const [cmaObject, setCmaObject] = useState<CmaObject>({
     title: "",
     cardTitle: "",
     cardDescription: "",
-    type: "",
+    type: "success",
   });
 
   const expirationDate = "25/05/2024";
@@ -24,7 +24,7 @@ export const useHomeController = () => {
   const handleOpenWhatsapp = () => {
     Linking.openURL(
       `http://api.whatsapp.com/send?phone=${"5493512515069"}&text=${encodeURIComponent(
-        "¡Hola! Me quiero agendar un nuevo turno"
+        "¡Hola! Quiero agendar un nuevo turno"
       )}`
     );
   };
@@ -42,7 +42,7 @@ export const useHomeController = () => {
 
     let status = "";
     let cardTitle = "";
-    let type = "";
+    let type: CardTypes;
 
     if (diferenciaDias > 30) {
       status = "Tu CMA está al día";

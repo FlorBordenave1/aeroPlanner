@@ -1,14 +1,12 @@
-import { FormControl, Input, VStack } from "native-base";
+import { Input, VStack } from "native-base";
 import { theme } from "../../../../../theme";
-import { StyleSheet } from "react-native";
-import ActionButton from "components/ActionButton";
-import { InputFieldProps, UserFormProps } from "../UserForm/types";
 import Text from "components/Text";
 
 interface InputFormProps {
   data: any;
 }
-export default function InputForm({ data }: InputFormProps) {
+
+const InputForm: React.FC<InputFormProps> = ({ data }) => {
   return (
     <VStack>
       <Text font="CAPTION_MEDIUM">{data.label}</Text>
@@ -33,14 +31,6 @@ export default function InputForm({ data }: InputFormProps) {
       />
     </VStack>
   );
-}
-const styles = StyleSheet.create({
-  formContainer: {
-    justifyContent: "center",
-  },
-  form: {
-    borderRadius: 10,
-    gap: 16,
-    marginTop: 24,
-  },
-});
+};
+
+export default InputForm;

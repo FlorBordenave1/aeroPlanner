@@ -1,22 +1,19 @@
-import { Box, HStack, Text, VStack } from "native-base";
+import { Box, HStack, VStack } from "native-base";
 import { InfoBoxProps } from "./types";
 import { theme } from "../../../../../theme";
+import Text from "components/Text";
 
-export default function InfoBox({
+const InfoBox: React.FC<InfoBoxProps> = ({
   title,
   direccion,
   cardTitle,
   cardDescription,
   icon,
   bg,
-}: InfoBoxProps) {
+}) => {
   return (
     <VStack space={"8px"}>
-      {title && (
-        <Text fontSize={20} fontFamily={"Poppins-Bold"}>
-          {title}
-        </Text>
-      )}
+      {title && <Text font="H2_SEMIBOLD">{title}</Text>}
       <Box
         background={bg || theme.colors.baseWhite}
         borderRadius={12}
@@ -29,33 +26,17 @@ export default function InfoBox({
         {icon}
         {direccion === "row" ? (
           <HStack alignItems={"center"} space={2}>
-            <Text fontSize={16} fontFamily={"Poppins"}>
-              {cardTitle}
-            </Text>
-            <Text
-              fontSize={14}
-              fontFamily={"Poppins"}
-              color={theme.colors.gray03}
-            >
-              {cardDescription}
-            </Text>
+            <Text font="BODY_REGULAR">{cardTitle}</Text>
+            <Text font="HELPER_TEXT_REGULAR">{cardDescription}</Text>
           </HStack>
         ) : (
           <VStack>
-            <Text fontSize={16} fontFamily={"Poppins"} lineHeight={"24px"}>
-              {cardTitle}
-            </Text>
-            <Text
-              fontSize={14}
-              fontFamily={"Poppins"}
-              color={theme.colors.gray03}
-              lineHeight={"16px"}
-            >
-              {cardDescription}
-            </Text>
+            <Text font="BODY_REGULAR">{cardTitle}</Text>
+            <Text font="HELPER_TEXT_REGULAR">{cardDescription}</Text>
           </VStack>
         )}
       </Box>
     </VStack>
   );
-}
+};
+export default InfoBox;

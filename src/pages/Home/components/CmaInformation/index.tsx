@@ -1,45 +1,47 @@
-import { Box, HStack, Text, VStack } from "native-base";
-import { InfoBoxProps } from "./types";
+import { Box, HStack, VStack } from "native-base";
+import { CardTypes, CmaInformationProps } from "./types";
 import { theme } from "../../../../../theme";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
+import Text from "components/Text";
 
-export default function CmaInformation({ data }: InfoBoxProps) {
+const CmaInformation: React.FC<CmaInformationProps> = ({ data }) => {
   const { title, cardTitle, cardDescription, type } = data;
 
   const color = theme.colors;
 
-  const renderBackgroundColor = () => {
-    if (type === "success") return color.success00;
-    if (type === "error") return color.error00;
-    if (type === "warning") return color.warning00;
+  const renderBackgroundColor = (type: CardTypes) => {
+    const types = {
+      ["success"]: theme.colors.success00,
+      ["error"]: theme.colors.error00,
+      ["warning"]: theme.colors.warning00,
+    };
+    return types[type];
   };
 
-  const renderIcon = () => {
-    if (type === "success")
-      return (
+  const renderIcon = (type: CardTypes) => {
+    const typesOfIcons = {
+      ["success"]: (
         <AntDesign name="checkcircleo" size={20} color={color.success05} />
-      );
-    if (type === "error")
-      return (
+      ),
+      ["error"]: (
         <Ionicons name="alert-circle-outline" size={24} color={color.error05} />
-      );
-    if (type === "warning")
-      return (
+      ),
+      ["warning"]: (
         <Ionicons
           name="alert-circle-outline"
           size={24}
           color={color.warning05}
         />
-      );
+      ),
+    };
+    return typesOfIcons[type];
   };
 
   return (
     <VStack space={"16px"}>
-      <Text fontSize={20} fontFamily={"Poppins-Bold"}>
-        {title}
-      </Text>
+      <Text font="H2_SEMIBOLD">{title}</Text>
       <Box
-        background={renderBackgroundColor()}
+        background={renderBackgroundColor(type)}
         borderRadius={12}
         shadow={"2"}
         padding={"16px"}
@@ -47,16 +49,14 @@ export default function CmaInformation({ data }: InfoBoxProps) {
         alignItems={"center"}
         style={{ gap: 11 }}
       >
-        {renderIcon()}
+        {renderIcon(type)}
         <HStack alignItems={"center"} space={2}>
-          <Text fontSize={16} fontFamily={"Poppins"}>
-            {cardTitle}
-          </Text>
-          <Text fontSize={14} fontFamily={"Poppins"} color={color.gray03}>
-            {cardDescription}
-          </Text>
+          <Text font="BODY_REGULAR">{cardTitle}</Text>
+          <Text font="HELPER_TEXT_REGULAR">{cardDescription}</Text>
         </HStack>
       </Box>
     </VStack>
   );
-}
+};
+
+export default CmaInformation;

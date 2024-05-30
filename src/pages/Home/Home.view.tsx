@@ -1,4 +1,4 @@
-import { Text, VStack } from "native-base";
+import { VStack } from "native-base";
 import { theme } from "../../../theme";
 import { useHomeController } from "./Home.controller";
 import InfoBox from "./components/InfoBox";
@@ -7,8 +7,9 @@ import LicenceBox from "./components/LicenceBox";
 import CustomIcon from "./components/CustomIcon";
 import CustomSafeAreaView from "components/CustomSafeArea";
 import TitlePage from "components/TitlePage";
+import Text from "components/Text";
 
-const Home = () => {
+const Home: React.FC = () => {
   const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
 
   return (
@@ -39,10 +40,9 @@ const Home = () => {
         />
 
         <Text
-          fontSize={14}
+          font="BT_SMALL_MEDIUM"
           color={theme.colors.primary05}
           onPress={handleOpenWhatsapp}
-          fontFamily={"Poppins-Bold"}
         >
           Agendar nuevo turno
         </Text>
