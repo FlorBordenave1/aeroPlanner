@@ -57,7 +57,7 @@ const TabNavigator = () => {
         }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Documentation"
         component={Documentation}
         options={{
@@ -66,7 +66,7 @@ const TabNavigator = () => {
             <Ionicons name="document-attach" size={24} color={color} />
           ),
         }}
-      />
+      /> */}
 
       <Tab.Screen
         name="Profile"

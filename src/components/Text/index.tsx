@@ -1,6 +1,5 @@
 import { Text as TextNativeBase } from "native-base";
 import { ReactNode } from "react";
-import { theme } from "../../../theme";
 import { FONTS } from "./fonts";
 
 interface TextProps {

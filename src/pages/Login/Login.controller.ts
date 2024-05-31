@@ -25,9 +25,14 @@ export const useLoginController = () => {
     },
   });
 
+  // const loginInitialValues: LoginFormValues = {
+  //   email: "gillanes.dev@gmail.com",
+  //   password: "Qwe123456",
+  // };
+
   const loginInitialValues: LoginFormValues = {
-    email: "gillanes.dev@gmail.com",
-    password: "Qwe123456",
+    email: "",
+    password: "",
   };
 
   const loginForm = useFormik<LoginFormValues>({

@@ -5,7 +5,6 @@ import { isAxiosError } from "axios";
 export const AuthenticationService: IAuthenticationService = {
   login: async ({ email, password }: LoginBody): Promise<LoginResponse> => {
     try {
-      // lo que va a devolver el servicio LoginResponse
       const response = await httpClient.post<LoginResponse>(
         "/auth/authenticate",
         { email, password }
@@ -13,10 +12,14 @@ export const AuthenticationService: IAuthenticationService = {
       return response.data;
     } catch (e) {
       if (isAxiosError(e)) {
-        throw e.response?.data.message;
+        if (e.response?.data?.message) {
+          throw new Error(e.response.data.message);
+        } else {
+          throw new Error("Error de autenticación");
+        }
+      } else {
+        throw new Error("Error de red");
       }
-
-      throw new Error(e as string);
     }
   },
 };

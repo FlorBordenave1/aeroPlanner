@@ -9,7 +9,7 @@ interface InputFormProps {
 const InputForm: React.FC<InputFormProps> = ({ data }) => {
   return (
     <VStack>
-      <Text font="CAPTION_MEDIUM">{data.label}</Text>
+      <Text font="BT_SMALL_MEDIUM">{data.label}</Text>
       <Input
         readOnly
         id={data.name}
@@ -21,11 +21,11 @@ const InputForm: React.FC<InputFormProps> = ({ data }) => {
         placeholderTextColor={theme.colors.gray01}
         borderColor={theme.colors.baseWhite}
         value={data.value}
-        //   type={type}
         borderRadius={"8px"}
         fontFamily={"Poppins"}
-        //   onChangeText={formik.handleChange(name)}
         autoCapitalize="none"
+        //   type={type}
+        //   onChangeText={formik.handleChange(name)}
         //   keyboardType={keyboardType}
         marginTop={0}
       />
