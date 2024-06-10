@@ -9,12 +9,23 @@ export interface LoginBody {
 
 export interface LoginResponse {
   token: string;
-  user: {
-    id: number;
-    email: string;
-    role: {
-      id: number;
-      name: string;
-    };
-  };
+  user: User;
+}
+interface User {
+  email: string;
+  id: number;
+  profile: Profile;
+  role: Role;
+}
+interface Role {
+  id: number;
+  name: string;
+}
+interface Profile {
+  document_number: string;
+  document_type: string[];
+  first_name: string;
+  id: number;
+  last_name: string;
+  phone_number: string;
 }

@@ -1,4 +1,4 @@
-import { VStack } from "native-base";
+import { Badge, HStack, VStack } from "native-base";
 import { theme } from "../../../theme";
 import { useHomeController } from "./Home.controller";
 import InfoBox from "./components/InfoBox";
@@ -8,14 +8,18 @@ import CustomIcon from "./components/CustomIcon";
 import CustomSafeAreaView from "components/CustomSafeArea";
 import TitlePage from "components/TitlePage";
 import Text from "components/Text";
+import PilotStatus from "./components/PilotStatus";
 
 const Home: React.FC = () => {
   const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
 
+  const flyAlone = true;
   return (
     <CustomSafeAreaView>
       <VStack bg={theme.colors.baseWhite} flex={1} space={4}>
         <TitlePage title="Hola," subtitle="German" />
+
+        <PilotStatus flyAlone={flyAlone} />
 
         <InfoBox
           title={"Tu próximo vuelo:"}
@@ -27,13 +31,6 @@ const Home: React.FC = () => {
         <InfoBox
           direccion="row"
           title={"Tenés un total de:"}
-          cardTitle={"68hs"}
-          cardDescription={"acumuladas"}
-          icon={<CustomIcon size={24} name="airplane-check" />}
-        />
-
-        <InfoBox
-          direccion="row"
           cardTitle={"35hs"}
           cardDescription={"remanentes"}
           icon={<CustomIcon name="timetable" />}

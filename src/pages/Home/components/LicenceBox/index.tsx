@@ -1,14 +1,18 @@
-import { Box, HStack, Text, VStack } from "native-base";
+import { Badge, Box, HStack, VStack } from "native-base";
 import { LicenceBoxProps } from "./types";
 import { theme } from "../../../../../theme";
 import { Entypo } from "@expo/vector-icons";
+import Text from "components/Text";
 
 export default function LicenceBox({ data }: LicenceBoxProps) {
   return (
     <VStack space={"8px"}>
-      <Text fontSize={20} fontFamily={"Poppins-Bold"}>
-        {data.length > 1 ? "Tus licencias:" : "Tu licencia:"}
-      </Text>
+      <HStack space={1} alignItems={"center"}>
+        <Text font="H2_SEMIBOLD">
+          {data.length > 1 ? "Tus licencias:" : "Tu licencia:"}
+        </Text>
+      </HStack>
+
       <HStack space={3}>
         {data.map((licence, i) => (
           <Box
@@ -27,9 +31,7 @@ export default function LicenceBox({ data }: LicenceBoxProps) {
               color={theme.colors.primary05}
             />
 
-            <Text fontSize={16} fontFamily={"Poppins"}>
-              {licence.title}
-            </Text>
+            <Text font="BODY_REGULAR">{licence.title}</Text>
           </Box>
         ))}
       </HStack>

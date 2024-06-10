@@ -1,12 +1,22 @@
-import { createStackNavigator } from "@react-navigation/stack";
 import { AppNavigatorStack } from "./types";
+import { createStackNavigator } from "@react-navigation/stack";
+import { useAuthStore } from "zustand/useAuthStorage";
+import EvaluationForm from "@pages/EvaluationForm/EvaluationForm.view";
+import FlightDetail from "@pages/FlightDetail/FlightDetail.view";
 import Login from "../../pages/Login/Login.view";
 import TabNavigator from "../TabNavigator";
-import FlightDetail from "@pages/FlightDetail/FlightDetail.view";
 
-const Stack = createStackNavigator<AppNavigatorStack>();
+enum UserRole {
+  Admin = "admin",
+  Instructor = "instructor",
+  Pilot = "pilot",
+}
 
 const AppNavigator = () => {
+  const userRole = useAuthStore((state) => state.user?.user.role.name);
+
+  const Stack = createStackNavigator<AppNavigatorStack>();
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -14,8 +24,19 @@ const AppNavigator = () => {
       }}
     >
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Tabs" component={TabNavigator} />
-      <Stack.Screen name="FlightDetail" component={FlightDetail} />
+
+      {/* {userRole === UserRole.Instructor && ( */}
+      {(userRole === UserRole.Instructor || UserRole.Admin) && (
+        <Stack.Screen name="EvaluationForm" component={EvaluationForm} />
+      )}
+
+      {/* {(userRole === UserRole.Pilot || UserRole.Admin) && ( */}
+      {userRole === UserRole.Pilot && (
+        <>
+          <Stack.Screen name="Tabs" component={TabNavigator} />
+          <Stack.Screen name="FlightDetail" component={FlightDetail} />
+        </>
+      )}
     </Stack.Navigator>
   );
 };
