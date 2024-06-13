@@ -4,27 +4,27 @@ import { Input, ScrollView, Text, VStack } from "native-base";
 import { theme } from "../../../theme";
 import Autocomplete from "./components/Autocomplete";
 import { useEffect, useState } from "react";
-import { getPilots } from "services/pilots/getPilots";
+// import { getPilots } from "services/pilots/getPilots";
 import { Pilot } from "./EvaluationForm.types";
 
 const EvaluationForm: React.FC = () => {
-  const [pilots, setPilots] = useState<Pilot[]>([]);
+  // const [pilots, setPilots] = useState<Pilot[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  console.log("pilots", pilots);
+  // console.log("pilots", pilots);
 
-  useEffect(() => {
-    const fetchPilots = async () => {
-      try {
-        const data = await getPilots();
-        setPilots(data.pilots);
-      } catch (e: any) {
-        setError(e.message);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPilots = async () => {
+  //     try {
+  //       const data = await getPilots();
+  //       setPilots(data.pilots);
+  //     } catch (e: any) {
+  //       setError(e.message);
+  //     }
+  //   };
 
-    fetchPilots();
-  }, []);
+  //   fetchPilots();
+  // }, []);
 
   return (
     <CustomSafeAreaView>
@@ -33,7 +33,7 @@ const EvaluationForm: React.FC = () => {
           <TitlePage title="Chequeo" subtitle="Vuelo solo" />
 
           <Text> Piloto </Text>
-          <Autocomplete data={pilots} />
+          {/* <Autocomplete data={pilots} /> */}
           <Text fontWeight={800}> Aeronave </Text>
           <Text> RADIOBUTTON </Text>
 

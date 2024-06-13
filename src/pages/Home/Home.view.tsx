@@ -1,4 +1,4 @@
-import { Badge, HStack, VStack } from "native-base";
+import { VStack, View } from "native-base";
 import { theme } from "../../../theme";
 import { useHomeController } from "./Home.controller";
 import InfoBox from "./components/InfoBox";
@@ -11,13 +11,22 @@ import Text from "components/Text";
 import PilotStatus from "./components/PilotStatus";
 
 const Home: React.FC = () => {
-  const { handleOpenWhatsapp, cmaObject, licenceData } = useHomeController();
-
+  const { handleOpenWhatsapp, cmaObject, licenceData, userData, loading } =
+    useHomeController();
   const flyAlone = true;
+
+  if (loading) {
+    return (
+      <View>
+        <Text font="BODY_MEDIUM">cargando</Text>
+      </View>
+    );
+  }
+
   return (
     <CustomSafeAreaView>
       <VStack bg={theme.colors.baseWhite} flex={1} space={4}>
-        <TitlePage title="Hola," subtitle="German" />
+        <TitlePage title="Hola," subtitle={userData?.profile.first_name} />
 
         <InfoBox
           title={"Tu próximo vuelo:"}

@@ -25,7 +25,6 @@ export const useLoginController = () => {
     mutationKey: ["login"],
     onSuccess: (data) => {
       saveToken(data);
-      console.log("data", data);
     },
     onError: (error) => {
       showToast({ message: String(error), type: "error" });

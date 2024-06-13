@@ -42,13 +42,37 @@ const events = [
   },
 ];
 
+const themeCalendar = {
+  palette: {
+    primary: {
+      main: theme.colors.primary04,
+      contrastText: "#000",
+    },
+
+    typography: {
+      fontFamily: "Poppins-Bold",
+      moreLabel: "Poppins-Bold",
+    },
+  },
+};
+
 const CalendarPage = (props: Props) => {
   return (
     <SafeAreaView style={styles.container}>
       <View paddingX={5} marginBottom={3}>
         <TitlePage title="" subtitle="Calendario" />
       </View>
-      <Calendar events={events} height={600} weekStartsOn={1} />
+      <Calendar
+        events={events}
+        height={600}
+        weekStartsOn={1}
+        onPressEvent={(e) => console.log(e)}
+        theme={themeCalendar}
+        dayHeaderStyle={{
+          alignContent: "flex-start",
+        }}
+        dayHeaderHighlightColor={theme.colors.primary05}
+      />
     </SafeAreaView>
   );
 };

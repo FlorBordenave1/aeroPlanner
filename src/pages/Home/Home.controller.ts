@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { Linking } from "react-native";
 import { CardTypes, CmaObject, LicenceList } from "./Home.types";
+import { getPilot } from "services/pilots/getPilot";
+import { Pilot } from "zustand/usePilotStorage/types";
+import { usePilotStorage } from "zustand/usePilotStorage";
 
 export const useHomeController = () => {
+  const userData = usePilotStorage.getState().user;
+
   const [cmaObject, setCmaObject] = useState<CmaObject>({
     title: "",
     cardTitle: "",
@@ -66,6 +71,23 @@ export const useHomeController = () => {
     });
   };
 
+  const saveUserStorage = async (data: Pilot) => {
+    //  await AsyncStorage.setItem("pilotStorage", data);
+    usePilotStorage.getState().setUser(data);
+  };
+
+  const fetchPilots = async () => {
+    try {
+      const data = await getPilot();
+      saveUserStorage(data.data);
+    } catch (e: any) {
+      console.log("e", e);
+    }
+  };
+  useEffect(() => {
+    fetchPilots();
+  }, []);
+
   useEffect(() => {
     calculateStatusCma();
   }, [expirationDate]);
@@ -74,5 +96,7 @@ export const useHomeController = () => {
     handleOpenWhatsapp,
     cmaObject,
     licenceData,
+    loading: !userData,
+    userData,
   };
 };

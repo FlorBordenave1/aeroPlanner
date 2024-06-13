@@ -1,9 +1,9 @@
-export interface GetPilotsResponse {
-  success: boolean;
-  data: Data;
+export interface IPilotStorage {
+  user: Pilot | null;
+  setUser: (user: Pilot) => void;
 }
 
-export interface Data {
+export interface Pilot {
   id: number;
   email: string;
   profile: Profile;
