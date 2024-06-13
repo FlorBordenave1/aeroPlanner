@@ -19,14 +19,13 @@ const Home: React.FC = () => {
       <VStack bg={theme.colors.baseWhite} flex={1} space={4}>
         <TitlePage title="Hola," subtitle="German" />
 
-        <PilotStatus flyAlone={flyAlone} />
-
         <InfoBox
           title={"Tu próximo vuelo:"}
           cardTitle={"Empieza Junio 27"}
           cardDescription={"20 días restantes"}
           icon={<CustomIcon iconType="AntDesign" name="clockcircleo" />}
         />
+        <PilotStatus flyAlone={flyAlone} />
 
         <InfoBox
           direccion="row"

@@ -46,14 +46,13 @@ export const useLoginController = () => {
 
   const handleRedirect = (data: User) => {
     const role = data.role.name;
-    // if (role === "admin" || role === "pilot") {
-
-    if (role === "pilot") {
+    if (role === "admin" || role === "pilot") {
+      // if (role === "pilot") {
       navigation.navigate("Tabs");
       return;
     }
-    // if (role === "instructor"  ) {
-    if (role === "instructor" || role === "admin") {
+    if (role === "instructor") {
+      // if (role === "instructor" || role === "admin") {
       navigation.navigate("EvaluationForm");
     }
   };
@@ -62,11 +61,11 @@ export const useLoginController = () => {
     // email: "instructor@dev.com",
     // password: "Qwe123456",
 
-    // email: "gillanes.dev@gmail.com",
-    // password: "Qwe123456",
-
-    email: "piloto@dev.com",
+    email: "gillanes.dev@gmail.com",
     password: "Qwe123456",
+
+    // email: "piloto@dev.com",
+    // password: "Qwe123456",
   };
 
   // const loginInitialValues: LoginFormValues = {

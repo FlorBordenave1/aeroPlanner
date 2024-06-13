@@ -11,10 +11,11 @@ const PilotStatus = ({ flyAlone }: CustomIconProps) => {
     <Badge
       colorScheme={flyAlone ? theme.colors.primary05 : "warning"}
       borderRadius={20}
-      p={2}
+      padding={1.5}
       backgroundColor={
         flyAlone ? theme.colors.primary01 : theme.colors.warning00
       }
+      w={flyAlone ? 135 : 290}
     >
       <HStack space={2}>
         <CustomIcon
@@ -23,7 +24,7 @@ const PilotStatus = ({ flyAlone }: CustomIconProps) => {
           color={flyAlone ? theme.colors.primary05 : theme.colors.warning05}
         />
         <Text
-          font="BODY_MEDIUM"
+          font="BODY_REGULAR"
           color={flyAlone ? theme.colors.primary05 : theme.colors.warning05}
         >
           {flyAlone ? "Volas solo" : "Volas con acompañamiento"}

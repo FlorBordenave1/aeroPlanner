@@ -26,12 +26,12 @@ const AppNavigator = () => {
       <Stack.Screen name="Login" component={Login} />
 
       {/* {userRole === UserRole.Instructor && ( */}
-      {(userRole === UserRole.Instructor || UserRole.Admin) && (
+      {userRole === UserRole.Instructor && (
         <Stack.Screen name="EvaluationForm" component={EvaluationForm} />
       )}
 
-      {/* {(userRole === UserRole.Pilot || UserRole.Admin) && ( */}
-      {userRole === UserRole.Pilot && (
+      {(userRole === UserRole.Pilot || UserRole.Admin) && (
+        // {userRole === UserRole.Pilot && (
         <>
           <Stack.Screen name="Tabs" component={TabNavigator} />
           <Stack.Screen name="FlightDetail" component={FlightDetail} />

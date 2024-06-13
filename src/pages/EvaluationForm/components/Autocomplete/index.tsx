@@ -1,12 +1,6 @@
 import { Input } from "native-base";
 import React, { useState } from "react";
-import {
-  View,
-  TextInput,
-  FlatList,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import { theme } from "../../../../../theme";
 import { AutocompleteProps, Pilot } from "./types";
 
@@ -17,15 +11,11 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ data }) => {
   const handleInputChange = (text: string) => {
     setInputValue(text);
 
-    console.log("data", data);
-
     const filteredSuggestions = data.filter(
       (item) =>
         item.profile.first_name.toLowerCase().includes(text.toLowerCase()) ||
         item.profile.last_name.toLowerCase().includes(text.toLowerCase())
     );
-
-    console.log("filteredSuggestions", filteredSuggestions);
 
     setSuggestions(filteredSuggestions);
   };

@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TabNavigatorStack } from "./types";
-import Calendar from "@pages/Calendar";
 import Home from "@pages/Home/Home.view";
 import {
   FontAwesome5,
@@ -12,6 +11,7 @@ import Documentation from "@pages/Documentation/Documentation.view";
 import Profile from "@pages/Profile/Profile.view";
 import Schedule from "@pages/Schedule/Schedule.view";
 import { theme } from "../../../theme";
+import CalendarPage from "@pages/Calendar/Calendar.view";
 
 const Tab = createBottomTabNavigator<TabNavigatorStack>();
 
@@ -48,7 +48,7 @@ const TabNavigator = () => {
 
       <Tab.Screen
         name="Calendar"
-        component={Calendar}
+        component={CalendarPage}
         options={{
           tabBarLabel: "Calendario",
           tabBarIcon: ({ color }) => (
